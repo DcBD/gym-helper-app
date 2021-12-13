@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@gym-helper-app/data": ["libs/data/src/index.ts"],
+      "@gym-helper-app/project-config": ["libs/project-config/src/index.ts"],
+      "@gym-helper-app/shared-types": ["libs/shared-types/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

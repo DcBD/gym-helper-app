@@ -2,7 +2,9 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "data": "libs/data",
     "next-app": "apps/next-app",
-    "next-app-e2e": "apps/next-app-e2e"
+    "next-app-e2e": "apps/next-app-e2e",
+    "shared-types": "libs/shared-types"
   }
 }
