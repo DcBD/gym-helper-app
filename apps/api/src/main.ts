@@ -6,9 +6,14 @@
 import * as express from 'express';
 import { connect } from '@gym-helper-app/data'
 import { environment } from './environments/environment.prod';
+import db from './instances/database/db';
+import dbInit from './instances/database/init';
 
 const app = express();
-const database = connect(environment.database);
+
+const sequelize = connect(environment.database);
+
+dbInit(sequelize);
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
