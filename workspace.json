@@ -5,6 +5,7 @@
     "data": "libs/data",
     "next-app": "apps/next-app",
     "next-app-e2e": "apps/next-app-e2e",
-    "shared-types": "libs/shared-types"
+    "shared-types": "libs/shared-types",
+    "tools": "libs/tools"
   }
 }

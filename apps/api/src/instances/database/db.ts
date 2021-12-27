@@ -1,11 +1,12 @@
-import { connect } from "@gym-helper-app/data";
+
 import { Sequelize } from "sequelize/dist";
-import { environment } from "../../environments/environment";
+
+import { dbManager } from "../../tools/DbManager";
 
 /**
  * Sequelize database instance.
  */
-const db: Sequelize = connect(environment.database);
+const db: Sequelize = dbManager.db;
 
 
 

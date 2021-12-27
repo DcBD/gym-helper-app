@@ -4,16 +4,13 @@
  */
 
 import * as express from 'express';
-import { connect } from '@gym-helper-app/data'
+
 import { environment } from './environments/environment.prod';
-import db from './instances/database/db';
-import dbInit from './instances/database/init';
+import { dbManager } from './tools/DbManager';
 
 const app = express();
 
-const sequelize = connect(environment.database);
-
-dbInit(sequelize);
+const db = dbManager.db;
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
