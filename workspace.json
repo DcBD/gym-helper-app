@@ -4,6 +4,8 @@
     "api": "apps/api",
     "data": "libs/data",
     "shared-types": "libs/shared-types",
-    "tools": "libs/tools"
+    "tools": "libs/tools",
+    "web": "apps/web",
+    "web-e2e": "apps/web-e2e"
   }
 }
