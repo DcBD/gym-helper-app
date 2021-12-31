@@ -9,6 +9,7 @@
   },
   "private": true,
   "dependencies": {
+    "@mui/material": "^5.2.7",
     "@nrwl/next": "13.3.1",
     "@types/validator": "^13.7.0",
     "core-js": "^3.6.5",
