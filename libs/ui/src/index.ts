@@ -1,2 +1,3 @@
 export * from './lib/ui';
-export * from './lib/';
+export * from './lib/page/PageBase';
+export * from './lib/theme/theme';

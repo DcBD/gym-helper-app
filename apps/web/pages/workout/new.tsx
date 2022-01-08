@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const StyledPage = styled(PageBase)``;
 
-interface IndexProps { text: string }
-export function Index({ text }: IndexProps) {
+interface NewProps { }
+export function Index({ }: NewProps) {
     return (
         <StyledPage>
-            {text}
+            re
         </StyledPage>
     );
 }
