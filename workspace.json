@@ -6,6 +6,7 @@
     "shared-types": "libs/shared-types",
     "tools": "libs/tools",
     "ui": "libs/ui",
+    "ui-e2e": "apps/ui-e2e",
     "web": "apps/web",
     "web-e2e": "apps/web-e2e"
   }
