@@ -12,16 +12,21 @@ export interface PageBaseProps {
   /**
    * Content displayed inside of the page component.
    */
-  children: React.ReactNode
+  children: React.ReactNode,
+
+  /**
+   * Additional class for styling
+   */
+  className?: string
 }
 
 
 /**
  * Base UI component for page container.
  */
-export function PageBase({ children }: PageBaseProps) {
+export function PageBase({ children, className }: PageBaseProps) {
   return (
-    <StyledPageBase>
+    <StyledPageBase className={className}>
       {children}
     </StyledPageBase>
   );
