@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@gym-helper-app/data": ["libs/data/src/index.ts"],
+      "@gym-helper-app/hooks": ["libs/hooks/src/index.ts"],
       "@gym-helper-app/project-config": ["libs/project-config/src/index.ts"],
       "@gym-helper-app/shared-types": ["libs/shared-types/src/index.ts"],
       "@gym-helper-app/tools": ["libs/tools/src/index.ts"],

@@ -20,6 +20,10 @@ export interface TextFieldProps {
    */
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 
+  /**
+   * Input placeholder text.
+   */
+  placeholder?: string
 }
 
 const Container = styled.div`

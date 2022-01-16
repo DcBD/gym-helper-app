@@ -22,7 +22,7 @@ export default class CustomDocument extends Document<{
     return (
       <Html>
         <Head>{this.props.styleTags}</Head>
-        <body>
+        <body style={{ backgroundColor: '#f0f2f5', padding: "20px" }}>
           <Main />
           <NextScript />
         </body>

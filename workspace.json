@@ -3,6 +3,7 @@
   "projects": {
     "api": "apps/api",
     "data": "libs/data",
+    "hooks": "libs/hooks",
     "shared-types": "libs/shared-types",
     "tools": "libs/tools",
     "ui": "libs/ui",
