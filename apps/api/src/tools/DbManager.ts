@@ -11,24 +11,17 @@ import apiLogger from "../instances/tools/Logger";
  */
 class DbManager {
 
-    private readonly _sequelize: Sequelize;
+    private _sequelize: Sequelize;
 
     private models: any[];
 
-    constructor() {
-        this._sequelize = this.initSequelize()
-    }
 
-    private initSequelize(): Sequelize | null {
-        console.log("Dasdassdaa");
-
-        connect(environment.database, (e) => {
+    public init(): Promise<Sequelize> {
+        return connect(environment.database, (e) => {
             apiLogger.error(ErrorClassification.DATABASE, 'Database connection error:', e.message)
 
             throw Error(`Database connection error: ${e.message}`)
-        });
-
-        return null;
+        }).then(sequelize => this.sequelize = sequelize)
     }
 
     /**
@@ -36,6 +29,13 @@ class DbManager {
      */
     public get sequelize(): Sequelize {
         return this._sequelize;
+    }
+
+    /**
+     * Gets sequelize instance
+     */
+    private set sequelize(sequelize: Sequelize) {
+        this._sequelize = sequelize;
     }
 
     public initModels(models: any[]): void {

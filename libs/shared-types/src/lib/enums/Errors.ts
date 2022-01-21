@@ -1,3 +1,4 @@
 export enum ErrorClassification {
-    "DATABASE"
+    "DATABASE",
+    "API"
 }

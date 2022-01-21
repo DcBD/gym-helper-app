@@ -7,10 +7,10 @@ import { Sequelize, Options } from 'sequelize'
  * @param errorCallback? callback after authenticate failed.
  * @returns authenticated sequelize instance.
  */
-export const connect = (options: Options, errorCallback?: (e: any) => void): Sequelize => {
+export const connect = async (options: Options, errorCallback?: (e: any) => void): Promise<Sequelize> => {
     const sequelize = new Sequelize(options);
 
-    sequelize.authenticate().catch(errorCallback);
+    await sequelize.authenticate().catch(errorCallback);
 
     return sequelize;
 }
