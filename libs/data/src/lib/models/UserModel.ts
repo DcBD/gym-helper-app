@@ -11,6 +11,7 @@ export class UserModel extends Model<UserAttributes, UserCreationAttributes> imp
     public readonly updatedAt?: Date;
 }
 
+
 /**
  * User table definition.
  */

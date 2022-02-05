@@ -1,9 +1,15 @@
-import { connect } from "@gym-helper-app/data";
+import { connect, MeasurementUnitModel, measurementUnitTableDefinition, UserModel, userTableDefinition } from "@gym-helper-app/data";
 import { ErrorClassification } from "@gym-helper-app/shared-types";
 import { Sequelize } from "sequelize/dist";
 import { environment } from "../environments/environment";
 
 import apiLogger from "../instances/tools/Logger";
+
+
+const models = [
+    [UserModel, userTableDefinition, 'users'],
+    [MeasurementUnitModel, measurementUnitTableDefinition, 'measurement-units']
+];
 
 
 /**
@@ -13,15 +19,19 @@ class DbManager {
 
     private _sequelize: Sequelize;
 
-    private models: any[];
-
-
     public init(): Promise<Sequelize> {
         return connect(environment.database, (e) => {
             apiLogger.error(ErrorClassification.DATABASE, 'Database connection error:', e.message)
 
             throw Error(`Database connection error: ${e.message}`)
-        }).then(sequelize => this.sequelize = sequelize)
+        })
+        .then(sequelize => {
+            this.sequelize = sequelize;
+
+            this.initModels()
+
+            return sequelize;
+        });
     }
 
     /**
@@ -38,17 +48,27 @@ class DbManager {
         this._sequelize = sequelize;
     }
 
-    public initModels(models: any[]): void {
-        this.models = models;
+    public initModels(): void {
+        const sequelize = this.sequelize;
 
-        // models.map(model => model.init().sync())
+        models.map(definition => {
+            const model : any = definition[0];
+            const tableDefinition = definition[1];
+            const tableName = definition[2];
+
+            model.init(tableDefinition, {sequelize: sequelize, tableName: tableName}).sync();
+        })
 
         this.afterInitModels();
     }
 
     private afterInitModels(): void {
         if (apiLogger.isDebugMode) {
-            apiLogger.table(this.models.map(m => m.name), "Initialized models:")
+            apiLogger.table(models.map(definition => {
+                const model : any = definition[0];
+
+                return model.name;
+            } ), "Initialized models:")
         }
     }
 

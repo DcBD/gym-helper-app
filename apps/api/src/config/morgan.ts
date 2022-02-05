@@ -11,7 +11,7 @@ const errorResponseFormat = `${ipFormat}:method :url :status - :response-time ms
 
 export const successHandler = morgan(successResponseFormat, {
     skip: (req, res) => res.statusCode >= 400,
-    stream: { write: (message) => apiLogger.log(message.trim) }
+    stream: { write: (message) => apiLogger.log(message.trim()) }
 });
 
 export const errorHandler = morgan(errorResponseFormat, {

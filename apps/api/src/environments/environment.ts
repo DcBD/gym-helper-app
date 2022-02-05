@@ -12,8 +12,8 @@ export const environment: {
   database: {
     host: "localhost",
     database: "app_gym_helper",
-    username: "root",
-    password: "root",
+    username: "dev",
+    password: "Password",
     dialect: "postgres"
   }
 };

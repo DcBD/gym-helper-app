@@ -1,26 +1,29 @@
 import * as express from 'express'
+import CommonRoute from '../../config/common-route';
+import { MeasurementUnitsRoutes } from './MeasurementUnitsRoute';
 
-const router = express.Router();
 
-/**
- * Route definition.
- */
-interface Route {
-    path: string,
-    route: express.Router
+export class ApiRouter {
+    private app : express.Application;
+
+
+    constructor(app : express.Application) {
+        this.app = app;
+    }
+
+    private initRoutes() : CommonRoute[]{
+        return [
+            new MeasurementUnitsRoutes(this.app)
+        ];
+    }
+
+    public static init(app : express.Application) {
+        const router = new ApiRouter(app);
+        
+        router.initRoutes();
+
+        return router;
+    }
 }
 
-/**
- * Api default routes
- */
-const routes: Route[] = [
-];
-
-
-/**
- * Routes available in development environment.
- */
-const devRoutes: Route[] = [
-
-]
 

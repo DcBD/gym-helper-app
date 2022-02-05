@@ -1,8 +1,9 @@
 import * as express from 'express';
-import { STATUS_CODES } from 'http';
+
 import { errorHandler, successHandler } from './config/morgan';
 
 import { environment } from "./environments/environment";
+import { ApiRouter} from './routes/v1';
 
 
 const app = express();
@@ -13,6 +14,12 @@ if (!environment.test) {
     app.use(successHandler);
     app.use(errorHandler);
 }
+
+// Other
+app.use(express.json())
+
+// Routes
+ApiRouter.init(app);
 
 // TODO: Security
 
