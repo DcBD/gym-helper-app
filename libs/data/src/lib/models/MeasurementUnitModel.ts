@@ -5,6 +5,7 @@ import { DataTypes, Model, ModelAttributes } from "sequelize/dist";
 export class MeasurementUnitModel extends Model<MeasurementUnitAttributes, MeasurementUnitCreationAttributes> implements MeasurementUnitAttributes {
     id: string
     name: string
+    acro: string
 }
 
 /**
@@ -12,11 +13,13 @@ export class MeasurementUnitModel extends Model<MeasurementUnitAttributes, Measu
  */
 export const measurementUnitTableDefinition: ModelAttributes<MeasurementUnitModel, MeasurementUnitAttributes> = {
     id: {
-        type: DataTypes.STRING,
-        primaryKey: true
+        type: DataTypes.STRING(4),
+        primaryKey: true,
+        comment: "acronym"
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        comment: "Full name"
     }
 }

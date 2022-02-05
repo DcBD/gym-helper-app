@@ -56,7 +56,7 @@ class DbManager {
             const tableDefinition = definition[1];
             const tableName = definition[2];
 
-            model.init(tableDefinition, {sequelize: sequelize, tableName: tableName}).sync();
+            model.init(tableDefinition, {sequelize: sequelize, tableName: tableName}).sync({ alter: true });
         })
 
         this.afterInitModels();
