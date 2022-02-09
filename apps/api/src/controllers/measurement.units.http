@@ -8,6 +8,6 @@ POST http://{{host}}/create
 Content-Type:{{contentType}}
 
 {
-    "id": "lb",
+    "id": "lbsasa",
     "name": "Foot"
 }

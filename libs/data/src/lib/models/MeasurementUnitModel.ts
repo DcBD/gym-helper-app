@@ -15,7 +15,8 @@ export const measurementUnitTableDefinition: ModelAttributes<MeasurementUnitMode
     id: {
         type: DataTypes.STRING(4),
         primaryKey: true,
-        comment: "acronym"
+        comment: "acronym",
+        unique: true
     },
     name: {
         type: DataTypes.STRING,

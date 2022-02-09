@@ -19,12 +19,17 @@ export class MeasurementUnitsController {
 
 
     public static async create(req: Request, res: Response, next: NextFunction) {
-        try {
-            (await MeasurementUnitModel.create(req.body)).save().then(
-                model => res.json(model)
-            )
-        } catch(error) {
-            console.log(error);
-        }
+        // try {
+        //     const model = await MeasurementUnitModel.build(req.body)
+
+        // } catch (error) {
+        //     console.log(error.errors);
+        // }
+
+        // res.send({});
+  
+            // await model.save();
+        
+            // res.json(model);
     }
 }

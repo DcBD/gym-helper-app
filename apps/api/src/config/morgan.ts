@@ -16,6 +16,6 @@ export const successHandler = morgan(successResponseFormat, {
 
 export const errorHandler = morgan(errorResponseFormat, {
     skip: (req, res) => res.statusCode < 400,
-    stream: { write: (message) => apiLogger.error(ErrorClassification.API, message.trim()) },
+    stream: { write: (message) => apiLogger.error(ErrorClassification.API, message.trim()) }
 });
 

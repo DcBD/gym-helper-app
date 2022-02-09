@@ -20,7 +20,7 @@ class DbManager {
     private _sequelize: Sequelize;
 
     public init(): Promise<Sequelize> {
-        return connect(environment.database, (e) => {
+        return connect({...environment.database, logging: false}, (e) => {
             apiLogger.error(ErrorClassification.DATABASE, 'Database connection error:', e.message)
 
             throw Error(`Database connection error: ${e.message}`)
